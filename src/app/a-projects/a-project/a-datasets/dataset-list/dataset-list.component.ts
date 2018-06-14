@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RouterService } from 'src/app/router.service';
+import { ProjectsService } from 'src/app/a-projects/projects.service';
 
 @Component({
   selector: 'app-dataset-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatasetListComponent implements OnInit {
 
-  constructor() { }
+  @Input() projectId: string;
+  datasets: Array<any>;
+
+
+  constructor(private projectService: ProjectsService, private routerService: RouterService) { }
 
   ngOnInit() {
+    this.projectService.getDatasets(this.routerService.routerParameters.projectId).subscribe(ds => this.datasets = ds);
   }
 
 }

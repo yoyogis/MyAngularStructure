@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { ProjectListComponent } from './project-list/project-list.component';
-import { ProjectComponent } from './a-project/project/project.component';
-import { DatasetsComponent } from './a-project/a-datasets/datasets/datasets.component';
+import { ProjectComponent } from './a-project/project.component';
+import { DatasetsComponent } from './a-project/a-datasets/datasets.component';
 import { DatasetListComponent } from './a-project/a-datasets/dataset-list/dataset-list.component';
 // tslint:disable-next-line:max-line-length
-import { DatasetOverviewComponent } from './a-project/a-datasets/a-dataset/a-overview/dataset-overview/dataset-overview.component';
-import { DatasetScriptComponent } from './a-project/a-datasets/a-dataset/a-script/dataset-script/dataset-script.component';
-import { DatasetIOComponent } from './a-project/a-datasets/a-dataset/a-io/dataset-io/dataset-io.component';
-import { ModelListComponent } from './a-project/a-models/model-list/model-list.component';
-import { ModelOverviewComponent } from './a-project/a-models/a-model/a-overview/model-overview/model-overview.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { DatasetComponent } from './a-project/a-datasets/a-dataset/dataset/dataset.component';
-import { ModelsComponent } from './a-project/a-models/models/models.component';
-import { ModelComponent } from './a-project/a-models/a-model/model/model.component';
+import { DatasetOverviewComponent } from './a-project/a-datasets/a-dataset/a-overview/dataset-overview.component';
+import { DatasetScriptComponent } from './a-project/a-datasets/a-dataset/a-script/dataset-script.component';
+import { DatasetIOComponent } from './a-project/a-datasets/a-dataset/a-io/dataset-io.component';
+import { ProjectsComponent } from './projects.component';
+import { DatasetComponent } from './a-project/a-datasets/a-dataset/dataset.component';
+import { ModelsComponent } from './a-project/a-models/models.component';
+import { ModelComponent } from './a-project/a-models/a-model/model.component';
+import { ModelOverviewComponent } from './a-project/a-models/a-model/a-overview/model-overview.component';
 
 const routes: Routes = [
   {
@@ -30,36 +28,36 @@ const routes: Routes = [
         component: DatasetsComponent
       },
       {
-       path: 'datasets/:id',
-       component: DatasetComponent, // 包含一个tab，它的子路由共享
-       children: [
-        {
-          path: 'overview',
-          component: DatasetOverviewComponent
-        },
-        {
-          path: 'io',
-          component: DatasetIOComponent
-        },
-        {
-          path: 'script',
-          component: DatasetScriptComponent
-        }
-       ]
+        path: 'datasets/:datasetId',
+        component: DatasetComponent, // 包含一个tab，它的子路由共享
+        children: [
+          {
+            path: 'overview',
+            component: DatasetOverviewComponent
+          },
+          {
+            path: 'io',
+            component: DatasetIOComponent
+          },
+          {
+            path: 'script',
+            component: DatasetScriptComponent
+          }
+        ]
       },
       {
         path: 'models',
         component: ModelsComponent
       },
       {
-       path: 'models/:id',
-       component: ModelComponent, // 包含一个tab，它的子路由共享
-       children: [
-        {
-          path: 'overview',
-          component: ModelOverviewComponent
-        }
-       ]
+        path: 'models/:modelId',
+        component: ModelComponent, // 包含一个tab，它的子路由共享
+        children: [
+          {
+            path: 'overview',
+            component: ModelOverviewComponent
+          }
+        ]
       }
     ]
   }
@@ -72,7 +70,6 @@ const routes: Routes = [
   ],
   declarations: [
     ProjectsComponent,
-    ProjectListComponent,
     ProjectComponent,
     DatasetsComponent,
     DatasetListComponent,
@@ -81,7 +78,6 @@ const routes: Routes = [
     DatasetIOComponent,
     ModelComponent,
     ModelsComponent,
-    ModelListComponent,
     ModelOverviewComponent,
     DatasetComponent
   ]

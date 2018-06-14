@@ -12,4 +12,10 @@ describe('ProjectsService', () => {
   it('should be created', inject([ProjectsService], (service: ProjectsService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should get a project list', inject([ProjectsService], (service: ProjectsService) => {
+    service.getProjects().subscribe(r => {
+      expect(r.length < 0).toBeTruthy();
+    });
+  }));
 });

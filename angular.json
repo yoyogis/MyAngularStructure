@@ -7,10 +7,14 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "yy",
       "schematics": {
         "@schematics/angular:module": {
-          "flat": true
+          "flat": true,
+          "spec": false
+        },
+        "@schematics/angular:component": {
+          "spec": false
         }
       },
       "architect": {
