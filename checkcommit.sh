@@ -1,2 +1,3 @@
 # 在dev里但是不再release
-git cherry -v release dev
+result=`git cherry -v release dev`
+echo "length=${#result}"
